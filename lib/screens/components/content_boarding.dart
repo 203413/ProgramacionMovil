@@ -10,21 +10,28 @@ class ContentBoarding extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 230.0),
+          padding: const EdgeInsets.only(top: 250.0),
           child: Image.asset(
             image!,
-            width: double.infinity,
-            height: 250,
+            height: 220,
           ),
         ),
-        Text(
-          text!,
-          style: const TextStyle(fontSize: 40),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Text(
+            text!,
+            style: const TextStyle(
+                fontSize: 25, color: Color.fromARGB(255, 110, 26, 124)),
+          ),
         ),
-        Text(
-          descripcion!,
-          style: const TextStyle(fontSize: 20),
-        )
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Text(
+            descripcion!,
+            style: const TextStyle(
+                fontSize: 17, color: Color.fromARGB(255, 155, 159, 161)),
+          ),
+        ),
       ],
     );
   }
