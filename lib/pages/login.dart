@@ -1,3 +1,5 @@
+import 'package:app1/pages/view2.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -18,21 +20,39 @@ class Login extends StatelessWidget {
                     minHeight: viewportConstraints.maxHeight,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 600),
+                    padding: EdgeInsets.only(top: 600),
                     child: Column(
-                      children: const [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 20),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ('email'),
                             ),
                           ),
                         ),
-                        TextField(
+                        const TextField(
                           decoration: InputDecoration(
                             hintText: ('password'),
                           ),
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.only(top: 50),
+                                child: RichText(
+                                    text: TextSpan(
+                                        text: 'Restablecer contraseña',
+                                        style: TextStyle(color: Colors.black),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        View2()));
+                                          }))),
+                          ],
                         )
                       ],
                     ),

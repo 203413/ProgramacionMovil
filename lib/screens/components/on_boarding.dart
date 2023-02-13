@@ -1,3 +1,7 @@
+import 'package:app1/pages/view.dart';
+import 'package:app1/pages/view2.dart';
+import 'package:app1/pages/view3.dart';
+import 'package:app1/pages/view4.dart';
 import 'package:app1/screens/components/content_boarding.dart';
 import 'package:flutter/material.dart';
 
@@ -102,7 +106,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             ? Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const Login()))
+                                    builder: (_) => const View4()))
                             : varController.nextPage(
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeInOut);

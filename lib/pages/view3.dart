@@ -1,15 +1,14 @@
 import 'package:app1/pages/login.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class View extends StatefulWidget {
-  const View({super.key});
+class View3 extends StatefulWidget {
+  const View3({super.key});
 
   @override
-  State<View> createState() => _ViewState();
+  State<View3> createState() => _View3State();
 }
 
-class _ViewState extends State<View> {
+class _View3State extends State<View3> {
   List<bool> isSelected = [false];
   @override
   Widget build(BuildContext context) {
@@ -17,20 +16,20 @@ class _ViewState extends State<View> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 26, 26, 112),
         titleSpacing: 0.0,
-        title: const Text('Regístrate'),
+        title: const Text('Recuperar contraseña'),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: IconButton(
             color: Colors.red,
             icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () {},
           ),
         ),
         actions: [
           IconButton(
-            icon: Image.asset('assets/images/B5.png'),
+            icon: Image.asset('assets/images/logo.png'),
             onPressed: null,
           ),
         ],
@@ -56,16 +55,16 @@ class _ViewState extends State<View> {
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Color.fromARGB(255, 77, 77, 77)),
-                            "Crea una cuenta para usar la app",
+                            "Por seguridad, tu contraseña debe tener una longitud de entre 8 y 15 caracteres, usar mayúsculas, minúsculas, contener por lo menos un número y un caracter especial",
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(top: 60, right: 310),
+                          padding: EdgeInsets.only(top: 60, right: 220),
                           child: Text(
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color.fromARGB(255, 0, 0, 0)),
-                              "Nombre"),
+                              "Nueva contraseña"),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(bottom: 20),
@@ -82,17 +81,17 @@ class _ViewState extends State<View> {
                                     BorderRadius.all(Radius.circular(15.0)),
                                 borderSide: BorderSide(color: Colors.blue),
                               ),
-                              hintText: ' Name',
+                              hintText: ' Nueva contraseña',
                             ),
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(right: 220),
+                          padding: EdgeInsets.only(top: 20, right: 150),
                           child: Text(
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color.fromARGB(255, 0, 0, 0)),
-                              "Correo electronico"),
+                              "Confirma nueva contraseña"),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(bottom: 20),
@@ -109,47 +108,12 @@ class _ViewState extends State<View> {
                                     BorderRadius.all(Radius.circular(15.0)),
                                 borderSide: BorderSide(color: Colors.blue),
                               ),
-                              hintText: ' Email',
+                              hintText: ' Confirma nueva contraseña',
                             ),
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(right: 282),
-                          child: Text(
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                              "Contraseña"),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 20),
-                          child: TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15.0)),
-                                  borderSide: BorderSide(
-                                      color:
-                                          Color.fromARGB(135, 107, 101, 101))),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15.0)),
-                                borderSide: BorderSide(color: Colors.blue),
-                              ),
-                              hintText: ' Password',
-                            ),
-                          ),
-                        ),
-                        CheckboxListTile(
-                          title: const Text(
-                              "Al registrarme, acepto los términos y condiciones y la política de privacidad"),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          onChanged: (bool? value) {},
-                          value: isSelected[0], //  <-- leading Checkbox
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 145),
+                          padding: const EdgeInsets.only(top: 270),
                           child: SizedBox(
                             height: 50,
                             width: 300,
@@ -163,27 +127,6 @@ class _ViewState extends State<View> {
                                   borderRadius: BorderRadius.circular(20)),
                               child: const Text('Continuar',
                                   style: TextStyle(fontSize: 16)),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: RichText(
-                            text: TextSpan(
-                              text: '¿Ya tienes una cuenta? ',
-                              style: DefaultTextStyle.of(context).style,
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: 'Inicia sesión',
-                                    style: const TextStyle(color: Colors.red),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => Login()));
-                                      }),
-                              ],
                             ),
                           ),
                         ),
