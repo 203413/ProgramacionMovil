@@ -55,7 +55,7 @@ class _View2State extends State<View2> {
                           child: Text(
                             style: TextStyle(
                                 fontSize: 20,
-                                color: Color.fromARGB(255, 169, 63, 63)),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                             "Ingresa tu email para restablecer tu contraseña",
                           ),
                         ),

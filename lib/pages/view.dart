@@ -142,8 +142,19 @@ class _ViewState extends State<View> {
                           ),
                         ),
                         CheckboxListTile(
-                          title: const Text(
-                              "Al registrarme, acepto los términos y condiciones y la política de privacidad"),
+                          title: RichText(
+                            text: TextSpan(
+                              text: '¿Ya tienes una cuenta? ',
+                              style: DefaultTextStyle.of(context).style,
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Inicia sesión',
+                                    style: const TextStyle(color: Colors.red),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {}),
+                              ],
+                            ),
+                          ),
                           controlAffinity: ListTileControlAffinity.leading,
                           onChanged: (bool? value) {},
                           value: isSelected[0], //  <-- leading Checkbox

@@ -1,3 +1,4 @@
+import 'package:app1/pages/home.dart';
 import 'package:app1/pages/view.dart';
 import 'package:app1/pages/view2.dart';
 import 'package:app1/pages/view3.dart';
@@ -81,51 +82,53 @@ class _OnBoardingState extends State<OnBoarding> {
               itemCount: listBoarding.length,
             ),
           ),
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                      listBoarding.length,
-                      (index) =>
-                          pages(index: index, currentePage: currentPage)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 145),
-                  child: SizedBox(
-                    height: 50,
-                    width: 300,
-                    child: MaterialButton(
-                      color: currentPage == listBoarding.length - 1
-                          ? Colors.green
-                          : Colors.white,
-                      onPressed: () async {
-                        currentPage == listBoarding.length - 1
-                            ? Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const View4()))
-                            : varController.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut);
-                      },
-                      textColor: currentPage == listBoarding.length - 1
-                          ? Colors.white
-                          : Colors.grey,
-                      shape: RoundedRectangleBorder(
-                          side: const BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Text(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(listBoarding.length,
+                (index) => pages(index: index, currentePage: currentPage)),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 0),
+                    child: SizedBox(
+                      height: 50,
+                      width: 300,
+                      child: MaterialButton(
+                        color: currentPage == listBoarding.length - 1
+                            ? Colors.green
+                            : Colors.white,
+                        onPressed: () async {
                           currentPage == listBoarding.length - 1
-                              ? 'Continuar'
-                              : "Siguiente",
-                          style: const TextStyle(fontSize: 16)),
+                              ? Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const HomePage()))
+                              : varController.nextPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut);
+                        },
+                        textColor: currentPage == listBoarding.length - 1
+                            ? Colors.white
+                            : Colors.grey,
+                        shape: RoundedRectangleBorder(
+                            side:
+                                const BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Text(
+                            currentPage == listBoarding.length - 1
+                                ? 'Continuar'
+                                : "Siguiente",
+                            style: const TextStyle(fontSize: 16)),
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ],

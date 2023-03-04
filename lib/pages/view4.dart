@@ -1,7 +1,9 @@
 import 'package:app1/pages/login.dart';
 import 'package:app1/pages/view.dart';
+import 'package:app1/provider/google.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class View4 extends StatefulWidget {
   const View4({super.key});
@@ -44,15 +46,20 @@ class _View4State extends State<View4> {
                           padding: const EdgeInsets.only(top: 30),
                           child: SizedBox(
                             height: 50,
-                            width: 300,
+                            width: 350,
                             child: MaterialButton(
                               color: Color.fromARGB(255, 63, 104, 236),
-                              onPressed: () async {},
+                              onPressed: () async {
+                                final provider =
+                                    Provider.of<GoogleSignInProvider>(context,
+                                        listen: false);
+                                provider.googleLogin();
+                              },
                               textColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   side: const BorderSide(
                                       width: 1, color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(25)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -72,7 +79,7 @@ class _View4State extends State<View4> {
                           padding: const EdgeInsets.only(top: 30),
                           child: SizedBox(
                             height: 50,
-                            width: 300,
+                            width: 350,
                             child: MaterialButton(
                               color: Color.fromARGB(255, 56, 78, 159),
                               onPressed: () async {},
@@ -80,7 +87,7 @@ class _View4State extends State<View4> {
                               shape: RoundedRectangleBorder(
                                   side: const BorderSide(
                                       width: 1, color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(25)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -100,7 +107,7 @@ class _View4State extends State<View4> {
                           padding: const EdgeInsets.only(top: 50),
                           child: SizedBox(
                             height: 50,
-                            width: 300,
+                            width: 350,
                             child: MaterialButton(
                               color: Colors.white,
                               onPressed: () async {
@@ -114,7 +121,7 @@ class _View4State extends State<View4> {
                                   side: const BorderSide(
                                       width: 1,
                                       color: Color.fromARGB(255, 44, 44, 44)),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(25)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
