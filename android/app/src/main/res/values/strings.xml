@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">All4MyPet</string>
+    <string name="facebook_app_id">526442859594762</string>
+    <string name="fb_login_protocol_scheme">fb526442859594762</string>
+    <string name="facebook_client_token">057039fbaa0d41a6cc92ccae71e48aad</string>
+</resources>

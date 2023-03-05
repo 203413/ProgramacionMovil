@@ -1,3 +1,5 @@
+import 'package:app1/pages/face.dart';
+import 'package:app1/pages/facebook.dart';
 import 'package:app1/pages/login.dart';
 import 'package:app1/pages/view.dart';
 import 'package:app1/provider/google.dart';
@@ -14,6 +16,7 @@ class View4 extends StatefulWidget {
 
 class _View4State extends State<View4> {
   List<bool> isSelected = [false];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +85,13 @@ class _View4State extends State<View4> {
                             width: 350,
                             child: MaterialButton(
                               color: Color.fromARGB(255, 56, 78, 159),
-                              onPressed: () async {},
+                              onPressed: () async {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            signInFacebook()));
+                              },
                               textColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   side: const BorderSide(

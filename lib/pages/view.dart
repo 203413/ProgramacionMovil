@@ -1,6 +1,7 @@
 import 'package:app1/pages/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
 class View extends StatefulWidget {
   const View({super.key});
@@ -11,6 +12,13 @@ class View extends StatefulWidget {
 
 class _ViewState extends State<View> {
   List<bool> isSelected = [false];
+  final dio = Dio();
+  final formData = FormData.fromMap({
+    'username': 'marco1',
+    'password': 'patata20022',
+    'password2': 'patata20022',
+    'email': 'marco12s@gmail.com'
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,7 +174,17 @@ class _ViewState extends State<View> {
                             width: 300,
                             child: MaterialButton(
                               color: Colors.green,
-                              onPressed: () async {},
+                              onPressed: () async {
+                                final response = await dio.post(
+                                  'http://localhost:8000/api/v1/crear_usuario',
+                                  data: formData,
+                                  options: Options(
+                                    headers: {
+                                      "Content-type": "application/json",
+                                    },
+                                  ),
+                                );
+                              },
                               textColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   side: const BorderSide(
