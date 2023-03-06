@@ -2,8 +2,8 @@ import 'package:app1/pages/view2.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginTest extends StatelessWidget {
+  const LoginTest({super.key});
 
   @override
   Widget build(BuildContext context) {

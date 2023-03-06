@@ -1,6 +1,8 @@
-import 'package:app1/pages/face.dart';
 import 'package:app1/pages/facebook.dart';
 import 'package:app1/pages/login.dart';
+import 'package:app1/pages/loginapi.dart';
+import 'package:app1/pages/registro.dart';
+
 import 'package:app1/pages/view.dart';
 import 'package:app1/provider/google.dart';
 import 'package:flutter/gestures.dart';
@@ -123,7 +125,7 @@ class _View4State extends State<View4> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => View()));
+                                        builder: (context) => Register()));
                               },
                               textColor: Colors.white,
                               shape: RoundedRectangleBorder(
@@ -185,7 +187,7 @@ class _View4State extends State<View4> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Login()));
+                                                          OnLogin()));
                                             }),
                                     ],
                                   ),

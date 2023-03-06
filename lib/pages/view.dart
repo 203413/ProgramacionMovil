@@ -3,6 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
+import 'loginapi.dart';
+
 class View extends StatefulWidget {
   const View({super.key});
 
@@ -12,7 +14,12 @@ class View extends StatefulWidget {
 
 class _ViewState extends State<View> {
   List<bool> isSelected = [false];
+  static const baseUrl = 'https://reqres.in/api';
+  static const registerEndpoint = '/register';
+  static const loginEndpoint = '/login';
+
   final dio = Dio();
+
   final formData = FormData.fromMap({
     'username': 'marco1',
     'password': 'patata20022',
@@ -175,15 +182,16 @@ class _ViewState extends State<View> {
                             child: MaterialButton(
                               color: Colors.green,
                               onPressed: () async {
-                                final response = await dio.post(
-                                  'http://localhost:8000/api/v1/crear_usuario',
-                                  data: formData,
-                                  options: Options(
-                                    headers: {
-                                      "Content-type": "application/json",
-                                    },
-                                  ),
-                                );
+                                // final response = await dio.post(
+                                //   'http://localhost:8000/api/v1/crear_usuario',
+                                //   data: formData,
+                                //   options: Options(
+                                //     headers: {
+                                //       "Content-type": "application/json",
+                                //     },
+                                //   ),
+                                // );
+                                login("eve.holt@reqres.in", "cityslicka");
                               },
                               textColor: Colors.white,
                               shape: RoundedRectangleBorder(
@@ -210,7 +218,8 @@ class _ViewState extends State<View> {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) => Login()));
+                                                builder: (context) =>
+                                                    OnLogin()));
                                       }),
                               ],
                             ),
@@ -226,5 +235,28 @@ class _ViewState extends State<View> {
         ),
       ),
     );
+  }
+
+  Future<void> login(String email, String password) async {
+    try {
+      final response = await dio.post(
+        '$baseUrl$loginEndpoint',
+        data: {
+          'email': email,
+          'password': password,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        // Inicio de sesión exitoso
+        final token = response.data['token'];
+        print(token);
+        // Guarda el token en el almacenamiento local
+      } else {
+        // Error en la petición
+      }
+    } catch (e) {
+      // Error en la conexión
+    }
   }
 }

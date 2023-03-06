@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class Correo extends StatelessWidget {
+  const Correo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class Register extends StatelessWidget {
                           ],
                         ),
                         ElevatedButton(
-                          child: const Text('Register'),
+                          child: const Text('Correo'),
                           onPressed: () {
                             print('Hello');
                           },
