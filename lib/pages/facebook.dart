@@ -50,7 +50,7 @@ class _signInFacebookState extends State<signInFacebook> {
                       child: Text("Logout"))
                 ],
               )
-            : const Center(child: Text('Cargando...')),
+            : const Center(child: Text('Iniciando sesión con Facebook')),
       ),
     );
   }
